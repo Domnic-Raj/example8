@@ -33,8 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${{ secrets.PUT }} > put.txt
-          echo test, and deploy your project.
-          result=$(python3 libsodium.py)
-          echo "$result "> "$GITHUB_ENV"
-          echo $GITHUB_ENV
-          echo $result > encrypted.txt
+          result=$(python3 libsodium.py) > "$GITHUB_ENV"
+
+      - name: Run a multi-line script
+        run: echo Value is $result > encrypted.txt
