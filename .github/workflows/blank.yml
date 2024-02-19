@@ -34,6 +34,7 @@ jobs:
         run: |
           echo ${{ secrets.PUT }} > put.txt
           echo test, and deploy your project.
-          python3 libsodium.py > "$GITHUB_ENV"
+          result=$(python3 libsodium.py
+           echo "$result "> "$GITHUB_ENV"
           echo $GITHUB_ENV
-          echo $Encrypted_secret > encrypted.txt
+          echo $result > encrypted.txt
