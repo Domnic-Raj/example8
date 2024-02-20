@@ -42,8 +42,8 @@ jobs:
           echo " new : ${{ secrets.PUT }} " > putnew.txt
           echo "encrypted_value=$result" >> "$GITHUB_ENV"
 
-      - name: Run a multi-line script
-        run: echo Value is $encrypted_value > encrypted.txt
+      #- name: Run a multi-line script
+      #  run: echo Value is $encrypted_value > encrypted.txt
 
       #- name: Fetch Public Key
       #  run: |
