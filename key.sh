@@ -12,7 +12,7 @@ key_id=$(echo "$RESPONSE" | jq -r '.key_id')
 key=$(echo "$RESPONSE" | jq -r '.key')
 #echo "key_id=$(echo "$RESPONSE" | jq -r '.key_id')"
 #echo "key=$(echo "$RESPONSE" | jq -r '.key')"
-python3 libsodium1.py
+python3 ./libsodium1.py
 source ./env_vars.sh
 #INPUT="-d '{"encrypted_value":"$encrypted_secret","key_id":"$key_id"}'"
 INPUT='-d '{\"encrypted_value\":\"$encrypted_secret\",\"key_id\":\"$key_id\"}''
