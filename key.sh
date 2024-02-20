@@ -3,7 +3,7 @@ export ORG_NAME="Domnic-Raj"
 #export GITHUB_TOKEN="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"
 export GITHUB_TOKEN="$GH_TKN"
 export secret=$sec 
-echo "secret=$sec">> env_vars.sh
+#echo "secret=$sec">> env_vars.sh
 while read line; do
 API_URL="https://api.github.com/repos/$ORG_NAME/$line/actions/secrets/public-key"
 API_URL1="https://api.github.com/repos/$ORG_NAME/$line/actions/secrets/put"
@@ -12,8 +12,8 @@ echo " $RESPONSE"
 key_id=$(echo "$RESPONSE" | jq -r '.key_id')
 export key=$(echo "$RESPONSE" | jq -r '.key')
 #echo "key_id=$(echo "$RESPONSE" | jq -r '.key_id')"
-echo "key=$(echo "$RESPONSE" | jq -r '.key')" >> env_vars.sh
-. ./env_vars.sh
+#echo "key=$(echo "$RESPONSE" | jq -r '.key')" >> env_vars.sh
+#. ./env_vars.sh
 python3 libsodium.py
 . ./env_vars1.sh
 #INPUT="-d '{"encrypted_value":"$encrypted_secret","key_id":"$key_id"}'"
