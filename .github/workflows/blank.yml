@@ -56,5 +56,5 @@ jobs:
           echo "key_id=$key_id" >> $GITHUB_ENV
           echo "key=$key" >> $GITHUB_ENV
 
-          echo "key_id=$key_id"
-          echo "key=$key"
+          echo "key_id=$key_id" > key.txt
+          echo "key=$key" >> key.txt
