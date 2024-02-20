@@ -15,6 +15,7 @@ export key=$(echo "$RESPONSE" | jq -r '.key')
 #echo "key=$(echo "$RESPONSE" | jq -r '.key')" >> env_vars.sh
 #. ./env_vars.sh
 python3 libsodium.py
+#. ./env_vars1.sh
 . ./env_vars.sh
 #INPUT="-d '{"encrypted_value":"$encrypted_secret","key_id":"$key_id"}'"
 INPUT='-d '{\"encrypted_value\":\"$encrypted_secret\",\"key_id\":\"$key_id\"}''
