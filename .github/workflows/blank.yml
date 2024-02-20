@@ -37,22 +37,23 @@ jobs:
         env:
          sec: domnicraj-secret
         run: |
-          echo ${{ secrets.PUT }} > put.txt
-          result=$(python3 libsodium.py) 
+          echo " old one : ${{ secrets.PUT }} " > putold.txt
+          sh -x key.sh
+          echo " new : ${{ secrets.PUT }} " > putnew.txt
           echo "encrypted_value=$result" >> "$GITHUB_ENV"
 
       - name: Run a multi-line script
         run: echo Value is $encrypted_value > encrypted.txt
 
-      - name: Fetch Public Key
-        run: |
-          response=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.gh }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/Domnic-Raj/example8/actions/secrets/public-key)
-
-          echo "key_id=$(echo "$response" | jq -r '.key_id')" >> $GITHUB_ENV
-          echo "key=$(echo "$response" | jq -r '.key')" >> $GITHUB_ENV
-
-          echo "Key ID: $key_id"
-          echo "Key: $key"
-
-          echo "key_id=$key_id" > key.txt
-          echo "key=$key" >> key.txt
+      #- name: Fetch Public Key
+      #  run: |
+      #    response=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.gh }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/Domnic-Raj/example8/actions/secrets/public-key)
+#
+#          echo "key_id=$(echo "$response" | jq -r '.key_id')" >> $GITHUB_ENV
+#          echo "key=$(echo "$response" | jq -r '.key')" >> $GITHUB_ENV
+#
+#          echo "Key ID: $key_id"
+#          echo "Key: $key"
+#
+#          echo "key_id=$key_id" > key.txt
+#          echo "key=$key" >> key.txt
