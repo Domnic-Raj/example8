@@ -13,9 +13,9 @@ key_id=$(echo "$RESPONSE" | jq -r '.key_id')
 key=$(echo "$RESPONSE" | jq -r '.key')
 #echo "key_id=$(echo "$RESPONSE" | jq -r '.key_id')"
 echo "key=$(echo "$RESPONSE" | jq -r '.key')" >> env_vars.sh
-source ./env_vars.sh
+. ./env_vars.sh
 python3 libsodium.py
-source ./env_vars1.sh
+. ./env_vars1.sh
 #INPUT="-d '{"encrypted_value":"$encrypted_secret","key_id":"$key_id"}'"
 INPUT='-d '{\"encrypted_value\":\"$encrypted_secret\",\"key_id\":\"$key_id\"}''
 echo " $INPUT"
