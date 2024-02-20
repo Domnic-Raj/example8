@@ -4,7 +4,7 @@ from base64 import b64encode
 from nacl import encoding, public
 
 key = os.getenv("key")
-#print(key)
+print(key)
 def encrypt(public_key: str, secret_value: str) -> str:
   """Encrypt a Unicode string using the public key."""
   public_key = public.PublicKey(public_key.encode("utf-8"), encoding.Base64Encoder())
