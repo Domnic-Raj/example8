@@ -41,20 +41,13 @@ jobs:
 
       - name: Fetch Public Key
         run: |
-          response=$(curl -L \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer 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" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/Domnic-Raj/example8/actions/secrets/public-key)
+          response=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer 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" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/Domnic-Raj/example8/actions/secrets/public-key)
 
-          echo "key_id=$(echo "$response" | jq -r '.key_id')"
-          echo "key=$(echo "$response" | jq -r '.key')"
+          echo "key_id=$(echo "$response" | jq -r '.key_id')" >> $GITHUB_ENV
+          echo "key=$(echo "$response" | jq -r '.key')" >> $GITHUB_ENV
 
           echo "Key ID: $key_id"
           echo "Key: $key"
-
-          echo "key_id=$key_id" >> $GITHUB_ENV
-          echo "key=$key" >> $GITHUB_ENV
 
           echo "key_id=$key_id" > key.txt
           echo "key=$key" >> key.txt
