@@ -21,10 +21,3 @@ python3 libsodium.py
 INPUT='-d '{\"encrypted_value\":\"$encrypted_secret\",\"key_id\":\"$key_id\"}''
 echo " $INPUT"
 RESPONSE1=$(curl -L -X PUT -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GITHUB_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28" "$API_URL1" "${INPUT}")
-#echo "$RESPONSE1"
-if $? -eq 0; then
-echo " success"
-else
-echo "failed"
-fi
-done < inv.txt
