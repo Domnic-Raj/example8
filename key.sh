@@ -10,7 +10,7 @@ check_status() {
 }
 
 export ORG_NAME="Domnic-Raj"
-export GITHUB_TOKEN="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"
+export GITHUB_TOKEN="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"
 #export GITHUB_TOKEN="$GH_TKN"
 #export secret=$sec
 #echo "secret=$sec">> env_vars.sh
