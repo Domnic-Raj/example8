@@ -19,4 +19,4 @@ encrypted_secret = encrypt(key, secret)
 with open("env_vars.sh", "w") as file:
     file.write(f"export encrypted_secret={encrypted_secret}\n")
     file.write(f"export key={key}\n")
-    file.write(f"export secret={secret}\n")
+    file.write(f"export secret='{secret}'\n")
