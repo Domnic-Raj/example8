@@ -23,4 +23,4 @@ jobs:
         env:
          json: $json
         run: |
-          echo " json : ${{ secrets.json }} " > json
+          echo "${{ secrets.json }} " > json
