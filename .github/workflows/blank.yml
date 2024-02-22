@@ -12,4 +12,4 @@ jobs:
         env:
           json: ${{ secrets.json }}
         run: |
-           sh secret_key.sh
+           sh key.sh
