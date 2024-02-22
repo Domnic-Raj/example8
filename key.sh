@@ -15,18 +15,31 @@ export GITHUB_TOKEN="$GH_TKN"
 #export secret=$sec
 #echo "secret=$sec">> env_vars.sh
 
-export azcity="Trichy"
-export azemail="test@example.com"
-export azname="Domnic Raj - Secret"
-export azage="18"
+#export azcity="Trichy"
+#export azemail="test@example.com"
+#export azname="Domnic Raj - Secret"
+#export azage="18"
 
-env | grep '^az' > envsystem
+#env | grep '^az' > envsystem
+echo "$json"
+if ! echo ${json} | jq empty; then
+   echo "Error: Invalid JSON string provided."
+   exit 1
+ else
+   echo "valid JSON"
+   echo "${json}"
+fi
 
-while read sec; do
-echo " Environment name : $sec"
-secretname=$(echo $sec | awk -F'=' '{print$1}'| sed 's/^az//')
-echo " secret name = $secretname "
-export secret="$(echo $sec | awk -F'=' '{print$2}')"
+echo ${json} | jq -r 'keys[]' | while IFS= read -r e; do
+key="${e}"
+value=$(echo ${json}| jq -r ".${key}")
+echo "${key}=${value}"
+#echo " Environment name : $key"
+#secretname=$(echo $sec | awk -F'=' '{print$1}'| sed 's/^az//')
+secretname="${e}"
+echo " secret name = ${e}"
+#export secret="$(echo $sec | awk -F'=' '{print$2}')"
+export secret=$(echo ${json}| jq -r ".${key}")
 echo " value = $secret "
 
 while read line; do
@@ -56,4 +69,4 @@ RESPONSE1=$(curl -sSL -X PUT -H "Accept: application/vnd.github+json" -H "Author
 check_status "Updating secret for $line"
 echo "----------------------------------------------------------------"
 done < inv.txt
-done < envsystem
+done
