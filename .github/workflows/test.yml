@@ -1,10 +1,5 @@
 name: CI
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+on: workflow_dispatch
 env:
  GH_TKN: ${{ secrets.gh }}
 jobs:
@@ -28,4 +23,4 @@ jobs:
         env:
          sec: new-secret
         run: |
-          echo " old one : ${{ secrets.PUT }} " > putold.txt
+          echo " json : ${{ secrets.json }} " > json.txt
