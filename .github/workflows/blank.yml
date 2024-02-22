@@ -1,10 +1,5 @@
 name: CI
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+on: workflow_dispatch
 env:
  GH_TKN: ${{ secrets.gh }}
 jobs:
