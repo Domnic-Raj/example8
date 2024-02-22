@@ -1,4 +1,4 @@
-name: CI
+name: Simple Job
 on: workflow_dispatch
 env:
  GH_TKN: ${{ secrets.gh }}
