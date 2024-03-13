@@ -8,11 +8,11 @@ jobs:
   - name: fetching values
     run: |
      > test.txt
-     echo "${{ secrets.AGE}}" >> test.txt
-     echo "${{ secrets.BIRD }}" >> test.txt
-     echo "${{ secrets.CITY }}" >> test.txt
-     echo "${{ secrets.CONTINENT }}" >> test.txt
-     echo "${{ secrets.COUNTRY }}" >> test.txt
+     echo "${{ secrets.id}}" >> test.txt
+     echo "${{ secrets.name }}" >> test.txt
+     echo "${{ secrets.price }}" >> test.txt
+     echo "${{ secrets.quantity }}" >> test.txt
+     echo "${{ secrets.description }}" >> test.txt
      echo "${{ secrets.EMAIL }}" >> test.txt
      echo "${{ secrets.FRUIT }}" >> test.txt
      echo "${{ secrets.NAME }}" >> test.txt
