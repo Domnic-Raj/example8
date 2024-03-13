@@ -1,0 +1,20 @@
+name: Fetch value
+on: [workflow_dispatch]
+jobs:
+ fetch_value:
+  name: fetch job
+  runs-on: Linux
+  steps:
+  - name: fetching values
+    run: |
+     > test.txt
+     echo "${{ secrets.AGE}}" >> test.txt
+     echo "${{ secrets.BIRD }}" >> test.txt
+     echo "${{ secrets.CITY }}" >> test.txt
+     echo "${{ secrets.CONTINENT }}" >> test.txt
+     echo "${{ secrets.COUNTRY }}" >> test.txt
+     echo "${{ secrets.EMAIL }}" >> test.txt
+     echo "${{ secrets.FRUIT }}" >> test.txt
+     echo "${{ secrets.NAME }}" >> test.txt
+     echo "${{ secrets.PUT }}" >> test.txt
+     echo "${{ secrets.TEST }}" >> test.txt
